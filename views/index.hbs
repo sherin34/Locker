@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title>Locker Master</title>
+</head>
+<style>
+  .downloaddoc{
+    color: aliceblue;
+  }
+  .footer {
+    position: bottom;
+
+    width: 100%;
+    height: 60px;
+
+  }
+</style>
+
+<body>
+  <section>
+    <div class="">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <a class="navbar-brand" href="#">
+            <img src="" alt="Logo" height="50">
+          </a>
+
+        </div>
+
+    
+
+      </nav>
+    </div>
+  </section>
+  <section class="deposit">
+
+   
+      <div class="container mt-5">
+        <h5 class="mb-4">Deposit Form</h5>
+        <form action="/submit" method="POST">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="deposit_no">Deposit Number:</label>
+                <input type="text" class="form-control" id="deposit_no" name="deposit_no" >
+              </div>
+              <div class="form-group">
+                <label for="depositer_name">Depositer Name:</label>
+                <input type="text" class="form-control" id="depositer_name" name="depositer_name" >
+              </div>
+              <div class="form-group">
+                <label for="depositer_name_2">Depositer Name 2:</label>
+                <input type="text" class="form-control" id="depositer_name_2" name="depositer_name_2" >
+              </div>
+
+
+              <div class="form-group">
+                <label for="dep_type">Deposit Type:</label>
+                <input type="text" class="form-control" id="dep_type" name="dep_type" >
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+
+
+              <div class="form-group">
+                <label for="dep_amount">Deposit Amount:</label>
+                <input type="text" class="form-control" id="dep_amount" name="dep_amount" >
+              </div>
+
+              <div class="form-group">
+                <label for="dep_date">Deposit Date:</label>
+                <input type="text" class="form-control" id="dep_date" name="dep_date" >
+              </div>
+
+              <div class="form-group">
+                <label for="dep_mature">Deposit Maturity Date:</label>
+                <input type="text" class="form-control" id="dep_mature" name="dep_mature" >
+              </div>
+
+              <div class="form-group">
+                <label for="dep_mature_value">Deposit Mature Value:</label>
+                <input type="text" class="form-control" id="dep_mature_value" name="dep_mature_value" >
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Save Details</button>
+        </form>
+      </div>
+
+
+
+  </section>
+  
+  <section>
+    <div class="container mt-5">
+      <form class="form-inline my-2 my-lg-0" action="/user" method="post">
+        <label class="mr-2" for="cif_id">Locker Number</label>
+        <input class="form-control mr-sm-2" type="text" name="lockerNo" placeholder="Locker Number:" aria-label="Search"
+          value={{lockernumber}}>
+        <label class="mr-2" for="cif_id">Date</label>
+        <input class="form-control mr-sm-2" type="text" name="date" placeholder="Renewal Date:" aria-label="Search"
+          value={{date}}>
+
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Generate Files</button>
+      </form>
+    </div>
+  </section>
+  <section class="info">
+    </section>
+    </br></br>
+    <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h5>Name :{{name}},{{name2}},{{name3}}</h5>
+        <span id="nameLabel"></span>
+      </div>
+      <div class="col-md-6">
+        <h5>Deposit Present :{{deposit_info}}</h5>
+        <span id="depositPresentLabel"></span>
+      </div>
+    </div>
+  </div>
+  </section>
+  <section>
+    <div class="container mt-5">
+      <form class="form-inline my-2 my-lg-0" action="/pdf" method="post">
+
+        {{!-- <div>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="button"><a href="/downloadPDF">Download
+              PDF</a></button>
+
+        </div> --}}
+        <div >
+          <button class="btn btn-success my-2 my-sm-0" type="button"><a class="downloaddoc" href="/downloadDOC">Download
+              DOC</a></button>
+
+        </div>
+      </form>
+      <section>
+    <div class="container mt-5">
+      <form enctype="multipart/form-data" class="form-inline my-2 my-lg-0" action="/masterDataUpload" method="post">
+
+        <label class="mr-2" for="period">Master Data Upload:</label>
+        <input class="form-control mr-sm-2" type="file" name="excel">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Upload</button>
+      </form>
+    </div>
+  </section>
+    </div>
+  </section>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <section>
+    <footer class="footer">
+      <div class="container text-center">
+        <p></p></br>
+      </div>
+    </footer>
+
+  </section>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
